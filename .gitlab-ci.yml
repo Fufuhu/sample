@@ -17,6 +17,6 @@ guestbook_image_build:
 
 guestbook_image_test:
   stage: test
-  image: docker push registry.gitlab.com/fufuhu/sample/guestbook:latest
+  image: registry.gitlab.com/fufuhu/sample/guestbook:latest
   script:
     - python manage.py test
