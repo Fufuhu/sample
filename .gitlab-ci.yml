@@ -19,4 +19,6 @@ guestbook_image_test:
   stage: test
   image: registry.gitlab.com/fufuhu/sample/guestbook:latest
   script:
-    - python manage.py test
+    - |
+      cd /sampleapp
+      python manage.py test
