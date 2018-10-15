@@ -1,0 +1,14 @@
+name: guestbook
+version: 1.0.0
+appVersion: 1.0.0
+description: Guestbookサンプルアプリケーション
+keywords:
+- django
+home: https://github.com/Fufuhu/sample
+icon: https://github.com/Fufuhu/sample/blob/master/charts/guestbook/book_open_yoko.png?raw=true 
+sources:
+- https://github.com/Fufuhu/sample.git
+maintainers:
+- name: Ryoma Fujiwara
+  email: dummy@web.ryoma0923.work
+engine: gotpl

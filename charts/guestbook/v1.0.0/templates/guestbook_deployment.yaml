@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guestbook-deployment
+  labels:
+    app: guestbook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guestbook
+  template:
+    metadata:
+      labels:
+        app: guestbook
+    spec:
+      containers:
+      - name: guestbook
+        image: "{{ .Values.image }}:{{ .Values.tag }}" 
+        ports: 
+          - containerPort: 8000
+        envFrom:
+          - configMapRef:
+              name: guestbook-config
+        env:
+          - name: GUESTBOOK_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: guestbook-secret
+                key: GUESTBOOK_PASSWORD
+
+        command: 
+          - /bin/sh
+          - -c
+          - |
+            python manage.py migrate --settings sampleapp.settings_prod
+            python manage.py runserver 0.0.0.0:8000 --settings sampleapp.settings_prod
+      initContainers:
+      - name: mysql-waiter
+        image: "mysql:5.7.14"
+        command:
+          - /bin/bash
+          - -c
+          - |
+            # mysqladmin ping -u $username -p$password --host $host -c 10 --sleep 10
+            # mysqladmin ping -u guestbook -pguestbook_pass --host mysql -w10 --sleep 10
+            mysqladmin ping -u guestbook -pguestbook_pass --host mysql -w10 
