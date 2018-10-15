@@ -1,5 +1,6 @@
 stages:
   - build
+  - test
 
 guestbook_image_build:
   stage: build
@@ -13,3 +14,11 @@ guestbook_image_build:
     - docker push registry.gitlab.com/fufuhu/sample/guestbook:latest
   tags:
     - docker
+
+guestbook_image_test:
+  stage: test
+  image: registry.gitlab.com/fufuhu/sample/guestbook:latest
+  script:
+    - |
+      cd /sampleapp
+      python manage.py test
