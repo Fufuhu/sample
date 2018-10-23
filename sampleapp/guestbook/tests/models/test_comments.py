@@ -3,6 +3,15 @@ from guestbook.models.comments import Comment
 from guestbook.models.users import Commentator
 
 class TestComment(TestCase):
+
+    def setUp(self):
+        Comment.objects.all().delete()
+        Commentator.objects.all().delete()
+
+    def tearDown(self):
+        Commentator.objects.all().delete()
+        Comment.objects.all().delete()
+
     def test_commentator(self):
 
         commentator = Commentator(

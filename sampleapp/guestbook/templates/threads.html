@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}スレッド一覧{% endblock title %}
+{% block content %}
+    {% include 'thread_list.html' %}
+    <br/>
+    <div class="border-top border-bottom"> 
+    <br/>
+    {% for comment in comments %}
+        {% include 'comment.html' %}
+    {% endfor %}
+    </div>
+    <br/>
+    {% include 'thread_form.html' %}
+    <a href="{% url 'guestbook:threads' %}">トップに戻る</a>
+{% endblock content %}
