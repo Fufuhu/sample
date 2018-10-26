@@ -1,0 +1,18 @@
+<!--新規スレッド開設用のフォーム-->
+<form action="{% url 'guestbook:threads' %}" method="POST">
+    {% csrf_token %}
+    <h2>新規スレッド開設</h2>
+    <div class="form-group">
+        <label for="title">スレッドタイトル</label>
+        <input type="text" class="form-control" name="title" id="title" placeholder="スレッドの名前"/>
+    </div>
+    <div class="form-group">
+        <label for="name">名前</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="投稿者の名前"/>
+    </div>
+    <div class="form-group">
+        <label for="comment">メッセージ</label>
+        <textarea class="form-control" name="comment" id="comment" rows="12" placeholder="投稿したいメッセージを入力してください"></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">投稿</button>
+</form>

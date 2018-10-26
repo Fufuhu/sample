@@ -1,0 +1,9 @@
+<div class="alert alert-primary">
+    <h3 id="{{ comment.comment_id }}">{{ comment.title }}</h3>
+</div>
+<div class="alert alert-light">
+    By {{ comment.commentator.name }} 投稿日 {{ comment.append_at }}
+</div>
+<pre>
+{{ comment.comment }}
+</pre>

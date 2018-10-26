@@ -1,0 +1,9 @@
+<h2>スレッド一覧</h2>
+<div class="list-group">
+    <div class="list-group-item active">スレッド一覧</div>
+{% for comment in comments %}
+    <a href="#{{ comment.comment_id }}" class="list-group-item">
+        {{ comment.title }}
+    </a>
+{% endfor %}
+</ul>
