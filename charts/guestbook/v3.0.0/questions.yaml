@@ -34,13 +34,6 @@ questions:
   group: "MySQL Setting"
   default: "guestbook_pass"
 
-- label: "MySQL Root Password"
-  description: "Specify MySQL Root user password."
-  variable: mysql.mysqlRootPassword
-  type: string
-  group: "MySQL Setting"
-  default: "guestbook_pass"
-
 - label: "MySQL Database"
   description: "Specify MySQL database name."
   variable: mysql.mysqlDatabase
@@ -54,3 +47,10 @@ questions:
   type: string
   group: "MySQL Setting"
   default: "longhorn"
+
+- label: "MySQL Root Password"
+  description: "Specify MySQL Root user password."
+  variable: mysql.mysqlRootPassword
+  type: string
+  group: "MySQL Root Setting"
+  default: "guestbook_pass"
