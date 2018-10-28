@@ -39,7 +39,7 @@ questions:
   variable: mysql.mysqlDatabase
   type: string
   group: "MySQL Setting"
-  default: "guestbook_pass"
+  default: "guestbook"
 
 - label: "MySQL Storage"
   description: "Specify the k8s storage class for MySQL data storage."
