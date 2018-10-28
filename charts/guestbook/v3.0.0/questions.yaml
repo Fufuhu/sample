@@ -1,0 +1,56 @@
+questions:
+- label: "Application Docker Image" 
+  description: "Specify the application docker image."
+  variable: image
+  type: string
+  group: "Application Docker Image"
+  default: "registry.gitlab.com/fufuhu/sample/guestbook"
+
+- label: "Application Docker Image Tag" 
+  description: "Specify the application docker image tag."
+  variable: tag
+  type: string
+  group: "Application Docker Image"
+  default: "latest"
+
+- label: "MySQL DNS Name" 
+  description: "Specify MySQL DNS name."
+  variable: mysql.fullnameOverride
+  type: string
+  group: "MySQL DNS Setting"
+  default: "mysql"
+
+- label: "MySQL User"
+  description: "Specify MySQL user name to access."
+  variable: mysql.mysqlUser
+  type: string
+  group: "MySQL Setting"
+  default: "guestbook"
+
+- label: "MySQL Password"
+  description: "Specify MySQL user password of the specified user."
+  variable: mysql.mysqlPassword
+  type: string
+  group: "MySQL Setting"
+  default: "guestbook_pass"
+
+- label: "MySQL Database"
+  description: "Specify MySQL database name."
+  variable: mysql.mysqlDatabase
+  type: string
+  group: "MySQL Setting"
+  default: "guestbook"
+
+- label: "MySQL Storage"
+  description: "Specify the k8s storage class for MySQL data storage."
+  variable: mysql.persistence.storageClass
+  type: string
+  group: "MySQL Setting"
+  default: "longhorn"
+
+- label: "MySQL Root Password"
+  description: "Specify MySQL Root user password."
+  variable: mysql.mysqlRootPassword
+  type: string
+  group: "MySQL Root Setting"
+  default: "guestbook_pass"
