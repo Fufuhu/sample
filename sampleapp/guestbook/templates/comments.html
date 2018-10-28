@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
-{% block title %}スレッド一覧{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 {% block content %}
-    {% include 'thread_list.html' %}
-    <br/>
+    <h2>{{ root_comment.title }}</h2>
     <div class="border-top border-bottom"> 
     <br/>
     {% for comment in comments %}
         {% include 'comment.html' %}
-        <a href="{% url 'guestbook:comments' comment.comment_id %}">スレッドの中身を見る</a>
     {% endfor %}
     </div>
     <br/>
-    {% include 'thread_form.html' %}
+    {% include 'comment_form.html' %}
     <a href="{% url 'guestbook:threads' %}">トップに戻る</a>
 {% endblock content %}
