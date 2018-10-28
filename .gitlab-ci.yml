@@ -18,7 +18,15 @@ guestbook_image_build:
 guestbook_image_test:
   stage: test
   image: registry.gitlab.com/fufuhu/sample/guestbook:latest
+  services:
+  - name: mysql:5
+    alias: mysql
+  variables:
+    MYSQL_ROOT_PASSWORD: mysqlpassword
+    MYSQL_USER: "guestbook"
+    MYSQL_PASSWORD: "guestbook_pass"
+    MYSQL_DATABASE: "test_guestbook"
   script:
     - |
       cd /sampleapp
-      python manage.py test
+      ./test_script.sh
