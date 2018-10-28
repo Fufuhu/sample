@@ -38,8 +38,17 @@ spec:
       initContainers:
       - name: mysql-waiter
         image: "mysql:5.7.14"
+        envFrom:
+          - configMapRef:
+              name: guestbook-config
+        env:
+          - name: GUESTBOOK_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: guestbook-secret
+                key: GUESTBOOK_PASSWORD
         command:
           - /bin/bash
           - -c
           - |
-            mysqladmin ping -u guestbook -pguestbook_pass --host mysql -w10
+            mysqladmin ping -u ${GUESTBOOK_USER} -p${GUESTBOOK_PASSWORD} --host ${GUESTBOOK_DATABASE_HOST} -w10
